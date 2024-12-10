@@ -47,4 +47,20 @@ public class Species {
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getCommonName() {
+        return commonName;
+    }
+
+    public String getLatinName() {
+        return latinName;
+    }
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
 }

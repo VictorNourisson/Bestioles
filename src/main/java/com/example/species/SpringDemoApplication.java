@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ public class SpringDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("=== Test du PersonRepository ===");
+        /*System.out.println("=== Test du PersonRepository ===");
         
         System.out.println("Liste initiale des personnes :");
         personRepository.findAll().forEach(System.out::println);
@@ -53,7 +55,34 @@ public class SpringDemoApplication implements CommandLineRunner {
     
 		personRepository.deleteById(1);
 
-		System.out.println("Nombre de personnes après : " + personRepository.count());
+		System.out.println("Nombre de personnes après : " + personRepository.count());*/
 
+		Species chatByName = speciesRepository.findFirstByCommonName("Chat");
+		System.out.println("Première espèce trouvée avec le nom 'Chat': " + chatByName);
+
+		List<Species> speciesList = speciesRepository.findByLatinNameContainingIgnoreCase("fel");
+		System.out.println("Espèces contenant 'fel' dans leur nom latin:");
+		speciesList.forEach(System.out::println);
+
+        List<Person> personsByName = personRepository.findByLastnameAndFirstname("Dupont", "Jean");
+        System.out.println("Personnes avec le nom 'Dupont' ou le prénom 'Jean':");
+        personsByName.forEach(System.out::println);
+
+        List<Person> personsByAge = personRepository.findByAgeGreaterThanEqual(30);
+        System.out.println("Personnes âgées de 30 ans ou plus:");
+        personsByAge.forEach(System.out::println);
+
+        Species chatById = speciesRepository.findById(1).orElse(null);
+        if (chatById != null) {
+            List<Animal> chatAnimals = animalRepository.findBySpecies(chatById);
+            System.out.println("Animaux de l'espèce " + chatById.getCommonName() + ":");
+            chatAnimals.forEach(System.out::println);
+        }
+
+        // Test de findByColorIn
+        List<String> colors = Arrays.asList("Noir", "Blanc", "Roux");
+        List<Animal> coloredAnimals = animalRepository.findByColorIn(colors);
+        System.out.println("Animaux de couleur Noir, Blanc ou Roux:");
+        coloredAnimals.forEach(System.out::println);
     }
 }
