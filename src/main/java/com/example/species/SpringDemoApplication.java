@@ -1,5 +1,7 @@
 package com.example.species;
 
+import com.example.species.repository.*;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,12 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.example.species.repository.PersonRepository;
 import com.example.species.model.Animal;
 import com.example.species.model.Species;
 import com.example.species.model.Person;
-import com.example.species.repository.AnimalRepository;
-import com.example.species.repository.SpeciesRepository;
 import com.example.species.repository.PersonRepository;
 
 
@@ -84,12 +83,15 @@ public class SpringDemoApplication implements CommandLineRunner {
         System.out.println("Animaux de couleur Noir, Blanc ou Roux:");
         coloredAnimals.forEach(System.out::println);*/
 
-        System.out.println(speciesRepository.findAllOrderedByCommonName());
+        /*System.out.println(speciesRepository.findAllOrderedByCommonName());
         System.out.println(speciesRepository.findAllByCommonNameSql("test"));
         System.out.println(personRepository.findAllByAgeBetween(7, 45));
         Animal animal = animalRepository.findById(1).orElse(null);
         System.out.println(personRepository.findPersonByAnimals(animal));
         System.out.println(animalRepository.countAnimalsBySex("M"));
-        System.out.println(animalRepository.existsAnimalOwnedByAnyPerson(animal));
+        System.out.println(animalRepository.existsAnimalOwnedByAnyPerson(animal));*/
+
+        System.out.println("Delete persons without animals : " + this.personRepository.findAll());
+        this.personRepository.deleteAllPersonWithoutAnimal();
     }
 }
