@@ -57,7 +57,7 @@ public class SpringDemoApplication implements CommandLineRunner {
 
 		System.out.println("Nombre de personnes après : " + personRepository.count());*/
 
-		Species chatByName = speciesRepository.findFirstByCommonName("Chat");
+		/*Species chatByName = speciesRepository.findFirstByCommonName("Chat");
 		System.out.println("Première espèce trouvée avec le nom 'Chat': " + chatByName);
 
 		List<Species> speciesList = speciesRepository.findByLatinNameContainingIgnoreCase("fel");
@@ -79,10 +79,17 @@ public class SpringDemoApplication implements CommandLineRunner {
             chatAnimals.forEach(System.out::println);
         }
 
-        // Test de findByColorIn
         List<String> colors = Arrays.asList("Noir", "Blanc", "Roux");
         List<Animal> coloredAnimals = animalRepository.findByColorIn(colors);
         System.out.println("Animaux de couleur Noir, Blanc ou Roux:");
-        coloredAnimals.forEach(System.out::println);
+        coloredAnimals.forEach(System.out::println);*/
+
+        System.out.println(speciesRepository.findAllOrderedByCommonName());
+        System.out.println(speciesRepository.findAllByCommonNameSql("test"));
+        System.out.println(personRepository.findAllByAgeBetween(7, 45));
+        Animal animal = animalRepository.findById(1).orElse(null);
+        System.out.println(personRepository.findPersonByAnimals(animal));
+        System.out.println(animalRepository.countAnimalsBySex("M"));
+        System.out.println(animalRepository.existsAnimalOwnedByAnyPerson(animal));
     }
 }
