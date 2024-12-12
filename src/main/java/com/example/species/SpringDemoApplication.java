@@ -91,7 +91,9 @@ public class SpringDemoApplication implements CommandLineRunner {
         System.out.println(animalRepository.countAnimalsBySex("M"));
         System.out.println(animalRepository.existsAnimalOwnedByAnyPerson(animal));*/
 
-        System.out.println("Delete persons without animals : " + this.personRepository.findAll());
+       System.out.println("Delete persons without animals : " + this.personRepository.findAll());
         this.personRepository.deleteAllPersonWithoutAnimal();
+        System.out.println("Delete persons without animals : " + this.personRepository.findAll());
+        System.out.println("Create new Person : " + this.personRepository.generateXNewPerson(5));
     }
 }

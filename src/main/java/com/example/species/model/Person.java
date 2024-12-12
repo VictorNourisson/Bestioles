@@ -64,4 +64,24 @@ public class Person {
     public List<Animal> getAnimals() {
         return animals;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
+    }
 }
