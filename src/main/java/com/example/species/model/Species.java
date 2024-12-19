@@ -1,4 +1,5 @@
 package com.example.species.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Species {
     @Column(name = "latin_name", nullable = false, length = 200)
     private String latinName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "species")
     private List<Animal> animals;
 

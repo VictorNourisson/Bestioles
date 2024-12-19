@@ -2,7 +2,9 @@ package com.example.species.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "animal")
@@ -20,10 +22,12 @@ public class Animal {
     @Column(nullable = false)
     private String sex;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "species_id", nullable = false)
     private Species species;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "animals")
     private List<Person> owners;
 

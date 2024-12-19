@@ -1,5 +1,6 @@
 package com.example.species.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
@@ -27,6 +28,7 @@ public class Person {
     @Column
     private Integer age;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
         name = "person_animals",
@@ -84,4 +86,5 @@ public class Person {
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
+
 }

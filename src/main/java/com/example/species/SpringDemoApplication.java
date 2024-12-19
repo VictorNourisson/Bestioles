@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,10 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.species.model.Animal;
 import com.example.species.model.Species;
 import com.example.species.model.Person;
-import com.example.species.repository.PersonRepository;
 
 
 @SpringBootApplication
+@EnableScheduling
 public class SpringDemoApplication implements CommandLineRunner {
 
     @Autowired
