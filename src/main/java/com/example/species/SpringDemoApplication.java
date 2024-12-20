@@ -15,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.species.model.Animal;
 import com.example.species.model.Species;
 import com.example.species.model.Person;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 
 @SpringBootApplication
 @EnableScheduling
+@EnableWebSecurity
 public class SpringDemoApplication implements CommandLineRunner {
 
     @Autowired
