@@ -10,6 +10,6 @@ Pour corriger cette situation, j'ai regroupé tous les fichiers manquants et les
 
 ## Problème actuel
 
-Malgré cette correction, mon dépôt GitHub ne permet pas actuellement de tester tous les TPs correctement. Cela est du à tous les fichiers que j'ai modifié d'un commit à un autre.
+Malgré cette correction, mon dépôt GitHub ne permet pas actuellement de tester tous les TPs correctement. Cela est dû aux modifications apportées à de nombreux fichiers entre différents commits.
 
 Merci pour votre compréhension.
